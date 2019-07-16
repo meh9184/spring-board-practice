@@ -1,14 +1,14 @@
 /* common */
-body,td,th{font-family:'ÎßëÏùÄ Í≥†Îîï', 'malgun', Dotum, sans-serif;font-size:12px;color:#666;letter-spacing:0px}
+body,td,th{font-family:'∏º¿∫ ∞ÌµÒ', 'malgun', Dotum, sans-serif;font-size:12px;color:#666;letter-spacing:0px}
 
-input, button{font-family:'ÎßëÏùÄ Í≥†Îîï', 'malgun', Dotum, sans-serif;font-size:12px;overflow:visible}
-input[type="radio"]{*width:13px;*height:13px;font-family:'ÎßëÏùÄ Í≥†Îîï', 'malgun', Dotum, sans-serif;vertical-align:middle}
-input[type="checkbox"]{*width:13px;*height:13px;font-family:'ÎßëÏùÄ Í≥†Îîï', 'malgun', Dotum, sans-serif;vertical-align:middle}
-input[type="text"]{font-family:'ÎßëÏùÄ Í≥†Îîï', 'malgun', Dotum, sans-serif;font-size:12px;color:#666;padding-left:3px;border:1px solid #ABADB3}
-input[type="password"]{font-family:'ÎßëÏùÄ Í≥†Îîï', 'malgun', Dotum, sans-serif;font-size:12px;color:#666;padding-left:3px;border:1px solid #cdcdcd}
-input[type="file"]{font-family:'ÎßëÏùÄ Í≥†Îîï', 'malgun', Dotum, sans-serif;font-size:12px;height:22px;color:#666;background:#fff;border:1px solid #cdcdcd}
-select{font-family:'ÎßëÏùÄ Í≥†Îîï', 'malgun', Dotum, sans-serif;font-size:12px;color:#666;vertical-align:middle;border:none}
-textarea{font-family:'ÎßëÏùÄ Í≥†Îîï', 'malgun', Dotum, sans-serif;font-size:12px;color:#666;padding:5px;vertical-align:middle;border:1px solid #cdcdcd}
+input, button{font-family:'∏º¿∫ ∞ÌµÒ', 'malgun', Dotum, sans-serif;font-size:12px;overflow:visible}
+input[type="radio"]{*width:13px;*height:13px;font-family:'∏º¿∫ ∞ÌµÒ', 'malgun', Dotum, sans-serif;vertical-align:middle}
+input[type="checkbox"]{*width:13px;*height:13px;font-family:'∏º¿∫ ∞ÌµÒ', 'malgun', Dotum, sans-serif;vertical-align:middle}
+input[type="text"]{font-family:'∏º¿∫ ∞ÌµÒ', 'malgun', Dotum, sans-serif;font-size:12px;color:#666;padding-left:3px;border:1px solid #ABADB3}
+input[type="password"]{font-family:'∏º¿∫ ∞ÌµÒ', 'malgun', Dotum, sans-serif;font-size:12px;color:#666;padding-left:3px;border:1px solid #cdcdcd}
+input[type="file"]{font-family:'∏º¿∫ ∞ÌµÒ', 'malgun', Dotum, sans-serif;font-size:12px;height:22px;color:#666;background:#fff;border:1px solid #cdcdcd}
+select{font-family:'∏º¿∫ ∞ÌµÒ', 'malgun', Dotum, sans-serif;font-size:12px;color:#666;vertical-align:middle;border:none}
+textarea{font-family:'∏º¿∫ ∞ÌµÒ', 'malgun', Dotum, sans-serif;font-size:12px;color:#666;padding:5px;vertical-align:middle;border:1px solid #cdcdcd}
 em, address{font-style:normal}
 
 /* layout */
@@ -27,6 +27,10 @@ table.table02 caption{height:45px;line-height:45px;color:#333;padding-left:35px;
 table.table02 caption.center{padding-top:6px;height:39px;line-height:130%;text-align:center;color:#333;padding-left:0;border-top:3px solid #464646;border-bottom:1px solid #c9c9c9;background:#ececec}
 table.table02 tbody th{padding:10px;vertical-align:middle;font-family:'malgunbd';color:#333;border-right:1px solid #c9c9c9;border-bottom:1px solid #c9c9c9;background:#ececec}
 table.table02 tbody td{padding:10px;vertical-align:middle;padding-left:15px;background:#fafafa;border-bottom:1px solid #c9c9c9}
+
+/* link_style */
+a:link, a:visited, a:hover, a:active{color:#666;text-decoration:underline}
+a:hover{color:#0076c8}
 
 /* button */
 .btn {font-family:'malgunbd';display:inline-block;padding:3px 20px 6px 20px;margin:0;border:1px solid #aaa;cursor:pointer;color:#333;border-radius:2px;vertical-align:middle;font-size:13px;letter-spacing:-1px;line-height:normal;background-color:#feffff;text-decoration:none;}
@@ -60,3 +64,15 @@ textarea.textarea01{width:410px;height:95px;margin:10px 0}
 .mt15{margin-top:15px}
 .mb10{margin-bottom:10px}
 .mb25{margin-bottom:25px}
+
+/* page_option */
+.page_info{margin-bottom:10px;text-align:right}
+.page_info span.total_count{font-size:12px;color:#333}
+
+/* pagination */
+.pagination{display:block;margin-top:15px;text-align:center;line-height:normal;color:#666}
+.pagination *{display:inline-block;text-decoration:none;vertical-align:top}
+.pagination a{text-decoration:none;padding:0 5px;line-height:20px}
+.pagination a.onpage{font-family:'malgunbd';color:#0460a5}
+.pagination .direction_left01{margin:0 6px 0 3px}
+.pagination .direction_right01{margin:0 3px 0 6px}
