@@ -20,7 +20,7 @@ public class BoardService {
 	@Autowired
 	private BoardDao boardDao;
 
-	/** °Ô½ÃÆÇ - ¸ñ·Ï Á¶È¸ */
+	/** ê²Œì‹œíŒ - ëª©ë¡ ì¡°íšŒ */
 	public ResultUtil getBoardList(BoardForm boardForm) throws Exception {
 
 		ResultUtil resultUtil = new ResultUtil();
@@ -38,8 +38,6 @@ public class BoardService {
 			commonDto = PagingUtil.setPageUtil(commonForm);
 		}
 
-		System.out.println(commonDto.getLimit() + " " + commonDto.getOffset());
-		
 		boardForm.setLimit(commonDto.getLimit());
 		boardForm.setOffset(commonDto.getOffset());
 
@@ -55,14 +53,15 @@ public class BoardService {
 
 		return resultUtil;
 	}
-	
-	/** °Ô½ÃÆÇ - ¸ñ·Ï Á¶È¸ */
-	/*public List<BoardDto> getBoardList(BoardForm boardForm) throws Exception {
 
-		return boardDao.getBoardList(boardForm);
-	}*/
+	/** ê²Œì‹œíŒ - ëª©ë¡ ì¡°íšŒ */
+	/*
+	 * public List<BoardDto> getBoardList(BoardForm boardForm) throws Exception {
+	 * 
+	 * return boardDao.getBoardList(boardForm); }
+	 */
 
-	/** °Ô½ÃÆÇ - »ó¼¼ Á¶È¸ */
+	/** ê²Œì‹œíŒ - ìƒì„¸ ì¡°íšŒ */
 	public BoardDto getBoardDetail(BoardForm boardForm) throws Exception {
 
 		BoardDto boardDto = new BoardDto();
@@ -85,21 +84,21 @@ public class BoardService {
 		return boardDto;
 	}
 
-	/** °Ô½ÃÆÇ - µî·Ï */
+	/** ê²Œì‹œíŒ - ë“±ë¡ */
 	public BoardDto insertBoard(BoardForm boardForm) throws Exception {
 
 		BoardDto boardDto = new BoardDto();
 
 		int insertCnt = 0;
 
-//		for (int a = 0; a < 1527; a++) {
-//			
-//			boardForm.setBoard_subject("Á¦¸ñ_" + a);
-//			boardForm.setBoard_content("³»¿ë_" + a);
-//			boardForm.setBoard_writer("ÀÛ¼ºÀÚ_" + a);
-//
-//			insertCnt = boardDao.insertBoard(boardForm);
-//		}
+		// for (int a = 0; a < 1527; a++) {
+		//
+		// boardForm.setBoard_subject("ì œëª©_" + a);
+		// boardForm.setBoard_content("ë‚´ìš©_" + a);
+		// boardForm.setBoard_writer("ì‘ì„±ì_" + a);
+		//
+		// insertCnt = boardDao.insertBoard(boardForm);
+		// }
 
 		insertCnt = boardDao.insertBoard(boardForm);
 
@@ -114,7 +113,7 @@ public class BoardService {
 		return boardDto;
 	}
 
-	/** °Ô½ÃÆÇ - »èÁ¦ */
+	/** ê²Œì‹œíŒ - ì‚­ì œ */
 	public BoardDto deleteBoard(BoardForm boardForm) throws Exception {
 
 		BoardDto boardDto = new BoardDto();
@@ -130,7 +129,7 @@ public class BoardService {
 		return boardDto;
 	}
 
-	/** °Ô½ÃÆÇ - ¼öÁ¤ */
+	/** ê²Œì‹œíŒ - ìˆ˜ì • */
 	public BoardDto updateBoard(BoardForm boardForm) throws Exception {
 
 		BoardDto boardDto = new BoardDto();
@@ -138,6 +137,33 @@ public class BoardService {
 		int deleteCnt = boardDao.updateBoard(boardForm);
 
 		if (deleteCnt > 0) {
+			boardDto.setResult("SUCCESS");
+		} else {
+			boardDto.setResult("FAIL");
+		}
+
+		return boardDto;
+	}
+
+	/** ê²Œì‹œíŒ - ë‹µê¸€ ë“±ë¡ */
+	public BoardDto insertBoardReply(BoardForm boardForm) throws Exception {
+
+		BoardDto boardDto = new BoardDto();
+
+		BoardDto boardReplayInfo = boardDao.getBoardReplyInfo(boardForm);
+
+		boardForm.setBoard_seq(boardReplayInfo.getBoard_seq());
+		boardForm.setBoard_re_lev(boardReplayInfo.getBoard_re_lev());
+		boardForm.setBoard_re_ref(boardReplayInfo.getBoard_re_ref());
+		boardForm.setBoard_re_seq(boardReplayInfo.getBoard_re_seq());
+		
+		int insertCnt = 0;
+		
+		insertCnt += boardDao.updateBoardReSeq(boardForm);
+		
+		insertCnt += boardDao.insertBoardReply(boardForm);
+
+		if (insertCnt > 0) {
 			boardDto.setResult("SUCCESS");
 		} else {
 			boardDto.setResult("FAIL");

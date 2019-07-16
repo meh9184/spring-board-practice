@@ -15,7 +15,7 @@
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/board_practice?useSSL=false" />
+		<property name="url" value="jdbc:mysql://localhost:3306/board_practice?allowPublicKeyRetrieval=true&amp;useSSL=false&amp;serverTimezone=UTC" />
 		<property name="username" value="root" />
 		<property name="password" value="ansdmsghks9184" />
 	</bean>
@@ -29,26 +29,27 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
         <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
-    
- 	<context:component-scan base-package="com.spring.board" use-default-filters="false"> 
-        <context:include-filter type="annotation" expression="org.springframework.stereotype.Service" /> 
-        <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository" />
-    </context:component-scan>
-    
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> 
-        <property name="dataSource" ref="dataSource"/>
+        
+    <context:component-scan base-package="com.spring.board" use-default-filters="false"> 
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service" /> 
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository" />
+	</context:component-scan>
+		
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> 
+    	<property name="dataSource" ref="dataSource"/>
     </bean>
     
-     <aop:config proxy-target-class="true"> 
-        <aop:pointcut id="serviceOperation" expression="execution(public * com.spring.board..service.*Service.*(..))" /> 
-        <aop:advisor id="transactionAdvisor" pointcut-ref="serviceOperation" advice-ref="txAdvice"/> 
-     </aop:config>
-    
-     <tx:advice id="txAdvice" transaction-manager="transactionManager">
-	     <tx:attributes> 
-	         <tx:method name="insert*" rollback-for="Exception"/>
-	         <tx:method name="update*" rollback-for="Exception"/>
-	         <tx:method name="delete*" rollback-for="Exception"/>
-	     </tx:attributes>
-       </tx:advice>
+    <aop:config proxy-target-class="true"> 
+    	<aop:pointcut id="serviceOperation" expression="execution(public * com.spring.board..service.*Service.*(..))" /> 
+    	<aop:advisor id="transactionAdvisor" pointcut-ref="serviceOperation" advice-ref="txAdvice"/> 
+   	</aop:config> 
+   	
+   	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+   		<tx:attributes> 
+   			<tx:method name="insert*" rollback-for="Exception"/>
+   			<tx:method name="update*" rollback-for="Exception"/>
+   			<tx:method name="delete*" rollback-for="Exception"/>
+   		</tx:attributes>
+   	</tx:advice>
+   	
 </beans>

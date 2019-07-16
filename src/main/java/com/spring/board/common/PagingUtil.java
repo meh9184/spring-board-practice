@@ -4,7 +4,7 @@ import com.spring.board.dto.CommonDto;
 import com.spring.board.form.CommonForm;
 
 /**
- * ÆäÀÌÁö ³×ºñ°ÔÀÌ¼Ç Á¤º¸ ¼³Á¤À» À§ÇÑ Å¬·¡½º
+ * í˜ì´ì§€ ë„¤ë¹„ê²Œì´ì…˜ ì •ë³´ ì„¤ì •ì„ ìœ„í•œ í´ë˜ìŠ¤
  */
 public class PagingUtil {
 
@@ -12,39 +12,39 @@ public class PagingUtil {
 
 		CommonDto commonDto = new CommonDto();
 
-		String pagination = ""; // ÆäÀÌÂ¡ °á°ú °ª
-		String functionName = commonForm.getFunction_name(); // ÆäÀÌÂ¡ ¸ñ·ÏÀ» ¿äÃ»ÇÏ´Â ÀÚ¹Ù½ºÅ©¸³Æ® ÇÔ¼ö¸í
-		int currentPage = commonForm.getCurrent_page_no(); // ÇöÀç ÆäÀÌÁö ¹øÈ£
-		int countPerList = commonForm.getCount_per_list(); // ÇÑ È­¸é¿¡ Ãâ·ÂµÉ °Ô½Ã¹° ¼ö
-		int countPerPage = commonForm.getCount_per_page(); // ÇÑ È­¸é¿¡ Ãâ·ÂµÉ ÆäÀÌÁö ¼ö
-		int totalListCount = commonForm.getTatal_list_count(); // ÃÑ °Ô½Ã¹° ¼ö
-		int totalPageCount = totalListCount / countPerList; // ÃÑ ÆäÀÌÁö ¼ö
-		if (totalListCount % countPerList > 0) { // ÃÑ ÆäÀÌ¼ö¸¦ ±¸ÇÒ ¶§ intÇüÀ¸·Î °è»êÇÏ¸é ³ª¸ÓÁö°¡ ÀÖ´Â °æ¿ì °Ô½Ã¹°ÀÌ Á¸ÀçÇÏ±â ¶§¹®¿¡ ÃÑ ÆäÀÌÁöÀÇ ¼ö¸¦ ¼öÁ¤
+		String pagination = ""; // í˜ì´ì§• ê²°ê³¼ ê°’
+		String functionName = commonForm.getFunction_name(); // í˜ì´ì§• ëª©ë¡ì„ ìš”ì²­í•˜ëŠ” ìë°”ìŠ¤í¬ë¦½íŠ¸ í•¨ìˆ˜ëª…
+		int currentPage = commonForm.getCurrent_page_no(); // í˜„ì¬ í˜ì´ì§€ ë²ˆí˜¸
+		int countPerList = commonForm.getCount_per_list(); // í•œ í™”ë©´ì— ì¶œë ¥ë  ê²Œì‹œë¬¼ ìˆ˜
+		int countPerPage = commonForm.getCount_per_page(); // í•œ í™”ë©´ì— ì¶œë ¥ë  í˜ì´ì§€ ìˆ˜
+		int totalListCount = commonForm.getTatal_list_count(); // ì´ ê²Œì‹œë¬¼ ìˆ˜
+		int totalPageCount = totalListCount / countPerList; // ì´ í˜ì´ì§€ ìˆ˜
+		if (totalListCount % countPerList > 0) { // ì´ í˜ì´ìˆ˜ë¥¼ êµ¬í•  ë•Œ intí˜•ìœ¼ë¡œ ê³„ì‚°í•˜ë©´ ë‚˜ë¨¸ì§€ê°€ ìˆëŠ” ê²½ìš° ê²Œì‹œë¬¼ì´ ì¡´ì¬í•˜ê¸° ë•Œë¬¸ì— ì´ í˜ì´ì§€ì˜ ìˆ˜ë¥¼ ìˆ˜ì •
 			totalPageCount = totalPageCount + 1;
 		}
 
-		int viewFirstPage = (((currentPage - 1) / countPerPage) * countPerPage) + 1; // ÇÑ È­¸é¿¡ Ã¹ ÆäÀÌÁö ¹øÈ£
-		int ViewLastPage = viewFirstPage + countPerPage - 1; // ÇÑ È­¸é¿¡ ¸¶Áö¸· ÆäÀÌÁö ¹øÈ£
-		if (ViewLastPage > totalPageCount) { // ¸¶Áö¸· ÆäÀÌÁöÀÇ ¼ö°¡ ÃÑ ÆäÀÌÁöÀÇ ¼öº¸´Ù Å« °æ¿ì´Â °Ô½Ã¹°ÀÌ Á¸ÀçÇÏÁö ¾Ê±â ¶§¹®¿¡ ¸¶Áö¸· ÆäÀÌÁöÀÇ ¼ö¸¦ ¼öÁ¤
+		int viewFirstPage = (((currentPage - 1) / countPerPage) * countPerPage) + 1; // í•œ í™”ë©´ì— ì²« í˜ì´ì§€ ë²ˆí˜¸
+		int ViewLastPage = viewFirstPage + countPerPage - 1; // í•œ í™”ë©´ì— ë§ˆì§€ë§‰ í˜ì´ì§€ ë²ˆí˜¸
+		if (ViewLastPage > totalPageCount) { // ë§ˆì§€ë§‰ í˜ì´ì§€ì˜ ìˆ˜ê°€ ì´ í˜ì´ì§€ì˜ ìˆ˜ë³´ë‹¤ í° ê²½ìš°ëŠ” ê²Œì‹œë¬¼ì´ ì¡´ì¬í•˜ì§€ ì•Šê¸° ë•Œë¬¸ì— ë§ˆì§€ë§‰ í˜ì´ì§€ì˜ ìˆ˜ë¥¼ ìˆ˜ì •
 			ViewLastPage = totalPageCount;
 		}
 
-		int totalFirstPage = 1; // ÀüÃ¼ ÆäÀÌÁö Áß¿¡ Ã³À½ ÆäÀÌÁö
-		int totalLastPage = totalPageCount; // ÀüÃ¼ ÆäÀÌÁö Áß¿¡ ¸¶Áö¸· ÆäÀÌÁö
-		int prePerPage = 0; // ÀÌÀü È­¸é¿¡ Ã¹¹øÂ° ¹øÈ£
+		int totalFirstPage = 1; // ì „ì²´ í˜ì´ì§€ ì¤‘ì— ì²˜ìŒ í˜ì´ì§€
+		int totalLastPage = totalPageCount; // ì „ì²´ í˜ì´ì§€ ì¤‘ì— ë§ˆì§€ë§‰ í˜ì´ì§€
+		int prePerPage = 0; // ì´ì „ í™”ë©´ì— ì²«ë²ˆì§¸ ë²ˆí˜¸
 		if (viewFirstPage - countPerPage > 0) {
 			prePerPage = viewFirstPage - countPerPage;
 		} else {
 			prePerPage = totalFirstPage;
 		}
-		int nextPerPage = 0; // ÀÌÈÄ È­¸é¿¡ Ã¹¹øÂ° ¹øÈ£
+		int nextPerPage = 0; // ì´í›„ í™”ë©´ì— ì²«ë²ˆì§¸ ë²ˆí˜¸
 		if (viewFirstPage + countPerPage < totalPageCount) {
 			nextPerPage = viewFirstPage + countPerPage;
 		} else {
 			nextPerPage = totalPageCount;
 		}
 
-		// ÆäÀÌÁö ³×ÀÌ°ÔÀÌ¼Ç ¼³Á¤
+		// í˜ì´ì§€ ë„¤ì´ê²Œì´ì…˜ ì„¤ì •
 		pagination += "<div class='pagination'>";
 		pagination += "<a href='javascript:" + functionName + "(\"" + totalFirstPage + "\");' class=\"direction_left01\">[<<]</a>";
 		pagination += "<a href='javascript:" + functionName + "(" + prePerPage + ");' class=\"direction_left01\">[<]</a>";
@@ -59,9 +59,9 @@ public class PagingUtil {
 		pagination += "<a href='javascript:" + functionName + "(" + totalLastPage + ");' class=\"direction_right01\">[>>]</a>";
 		pagination += "</div>";
 
-		int offset = ((currentPage - 1) * countPerList); // ÇÑ È­¸éÀÇ Ç¥ÃâµÇ´Â °Ô½Ã¹°ÀÇ ½ÃÀÛ ¹øÈ£ (Äõ¸® Á¶°ÇÀı)
+		int offset = ((currentPage - 1) * countPerPage); // í•œ í™”ë©´ì˜ í‘œì¶œë˜ëŠ” ê²Œì‹œë¬¼ì˜ ì‹œì‘ ë²ˆí˜¸ (ì¿¼ë¦¬ ì¡°ê±´ì ˆ)
 
-		// LIMIT´Â °¡Á®¿Ã rowÀÇ ¼ö, OFFSETÀº ¸î ¹øÂ° rowºÎÅÍ °¡Á®¿ÃÁö¸¦ °áÁ¤
+		// LIMITëŠ” ê°€ì ¸ì˜¬ rowì˜ ìˆ˜, OFFSETì€ ëª‡ ë²ˆì§¸ rowë¶€í„° ê°€ì ¸ì˜¬ì§€ë¥¼ ê²°ì •
 		commonDto.setLimit(countPerList);
 		commonDto.setOffset(offset);
 		commonDto.setPagination(pagination);

@@ -18,49 +18,65 @@ public class BoardDao {
 
 	private static final String NAMESPACE = "com.spring.board.boardMapper";
 
-	/** °Ô½ÃÆÇ - ¸ñ·Ï ¼ö */
+	/** ê²Œì‹œíŒ - ëª©ë¡ ìˆ˜ */
 	public int getBoardCnt(BoardForm boardForm) throws Exception {
 
 		return sqlSession.selectOne(NAMESPACE + ".getBoardCnt", boardForm);
 	}
 
-	/** °Ô½ÃÆÇ - ¸ñ·Ï Á¶È¸ */
+	/** ê²Œì‹œíŒ - ëª©ë¡ ì¡°íšŒ */
 	public List<BoardDto> getBoardList(BoardForm boardForm) throws Exception {
 
 		return sqlSession.selectList(NAMESPACE + ".getBoardList", boardForm);
 	}
 
-	/** °Ô½ÃÆÇ - Á¶È¸ ¼ö ¼öÁ¤ */
+	/** ê²Œì‹œíŒ - ì¡°íšŒ ìˆ˜ ìˆ˜ì • */
 	public int updateBoardHits(BoardForm boardForm) throws Exception {
 
 		return sqlSession.update(NAMESPACE + ".updateBoardHits", boardForm);
 	}
 
-	/** °Ô½ÃÆÇ - »ó¼¼ Á¶È¸ */
+	/** ê²Œì‹œíŒ - ìƒì„¸ ì¡°íšŒ */
 	public BoardDto getBoardDetail(BoardForm boardForm) throws Exception {
 
 		return sqlSession.selectOne(NAMESPACE + ".getBoardDetail", boardForm);
 	}
 
-	/** °Ô½ÃÆÇ - µî·Ï */
+	/** ê²Œì‹œíŒ - ë“±ë¡ */
 	public int insertBoard(BoardForm boardForm) throws Exception {
 		return sqlSession.insert(NAMESPACE + ".insertBoard", boardForm);
 	}
 
-	/** °Ô½ÃÆÇ - µî·Ï ½ÇÆĞ(Æ®·£Àè¼Ç Å×½ºÆ®) */
+	/** ê²Œì‹œíŒ - ë“±ë¡ ì‹¤íŒ¨(íŠ¸ëœì­ì…˜ í…ŒìŠ¤íŠ¸) */
 	public int insertBoardFail(BoardForm boardForm) throws Exception {
 		return sqlSession.insert(NAMESPACE + ".insertBoardFail", boardForm);
 	}
 
-	/** °Ô½ÃÆÇ - »èÁ¦ */
+	/** ê²Œì‹œíŒ - ì‚­ì œ */
 	public int deleteBoard(BoardForm boardForm) throws Exception {
 
 		return sqlSession.delete(NAMESPACE + ".deleteBoard", boardForm);
 	}
 
-	/** °Ô½ÃÆÇ - ¼öÁ¤ */
+	/** ê²Œì‹œíŒ - ìˆ˜ì • */
 	public int updateBoard(BoardForm boardForm) throws Exception {
 
 		return sqlSession.update(NAMESPACE + ".updateBoard", boardForm);
+	}
+	
+	/** ê²Œì‹œíŒ - ë‹µê¸€ ì •ë³´  ì¡°íšŒ */
+	public BoardDto getBoardReplyInfo(BoardForm boardForm) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".getBoardReplyInfo", boardForm);
+	}
+	
+	/** ê²Œì‹œíŒ - ë‹µê¸€ì˜ ìˆœì„œ ìˆ˜ì • */
+	public int updateBoardReSeq(BoardForm boardForm) throws Exception {
+
+		return sqlSession.update(NAMESPACE + ".updateBoardReSeq", boardForm);
+	}
+	
+	/** ê²Œì‹œíŒ - ë‹µê¸€ ë“±ë¡ */
+	public int insertBoardReply(BoardForm boardForm) throws Exception {
+		return sqlSession.insert(NAMESPACE + ".insertBoardReply", boardForm);
 	}
 }
