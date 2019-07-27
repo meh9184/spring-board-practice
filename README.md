@@ -2,7 +2,7 @@
 Spring 프레임워크 게시판 연습
  
 
-## 주요 내용
+## 주요 학습 
 + DI
 + AOP
 + Transactoion
