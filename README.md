@@ -1,5 +1,5 @@
 # spring-board-practice
-Spring 프레임워크 게시판 연습
+Spring 프레임워크를 이용한 게시판 연습
  
 
 ## 주요 학습 
